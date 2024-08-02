@@ -1,0 +1,37 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# This is a placeholder for the operation code you want to return in GET requests
+operation_code = "OP12345"
+
+@app.route('/api/endpoint', methods=['GET', 'POST'])
+def api_endpoint():
+    if request.method == 'GET':
+        return jsonify({"operation_code": operation_code})
+    
+    if request.method == 'POST':
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "No input provided"}), 400
+        
+        user_id = data.get('user_id')
+        college_email = data.get('college_email')
+        college_roll_number = data.get('college_roll_number')
+        numbers_array = data.get('numbers_array', [])
+        alphabets_array = data.get('alphabets_array', [])
+        
+        response = {
+            "status": "success",
+            "user_id": user_id,
+            "college_email": college_email,
+            "college_roll_number": college_roll_number,
+            "numbers_array": numbers_array,
+            "alphabets_array": alphabets_array
+        }
+        
+        return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True)
