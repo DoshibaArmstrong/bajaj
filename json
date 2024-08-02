@@ -1,0 +1,29 @@
+{
+    "user_id": "12345",
+    "college_email": "user@college.edu",
+    "college_roll_number": "67890",
+    "numbers_array": [1, 2, 3, 4, 5],
+    "alphabets_array": ["a", "b", "c", "d", "e"]
+}
+{
+    "status": "success",
+    "user_id": "12345",
+    "college_email": "user@college.edu",
+    "college_roll_number": "67890",
+    "numbers_array": [1, 2, 3, 4, 5],
+    "alphabets_array": ["a", "b", "c", "d", "e"]
+}
+GET /api/endpoint
+{
+    "operation_code": "OP12345"
+}
+web: python app.py
+Flask==2.0.3
+git init
+heroku create
+git add .
+git commit -m "Initial commit"
+git push heroku master
+heroku open
+
+
